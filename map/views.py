@@ -10,14 +10,10 @@ import json
 
 def home(request):
     """
-    Main view, If request = get show all objects, else filter by form.
+    Main view, upload the form, all the projects data is loaded through AJAX
     """
-    jobs = Job.objects.all()
-    jobs_list = [json.dumps({"id": job.pk, "type": "Point", "coordinates": list(job.to_wgs84.coords)}) for job in jobs]
     filter_form = FilterForm()
-
     context = {
-        'jobs_list': jobs_list,
         'filter_form': filter_form
     }
 
@@ -126,7 +122,7 @@ def ajax_get_initial_data(request):
 
 def ajax_get_job_properties(request):
     """
-    Returns job data to ajax function
+    Returns job data to ajax function, it will be loaded on the modal
     :param request:
     :return: Json response with Job data
     """
@@ -159,6 +155,11 @@ def ajax_get_job_properties(request):
 
 
 def ajax_get_form_data(request):
+    """
+    Get the projects resulted from filtering the form
+    :param request: 
+    :return:
+    """
     filtered_jobs = []
     jobs = Job.objects.all()
     if request.method == 'POST':

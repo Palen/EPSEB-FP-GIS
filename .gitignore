@@ -51,6 +51,7 @@ coverage.xml
 local_settings.py
 migrations/
 media/
+catalonia.json
 
 
 
