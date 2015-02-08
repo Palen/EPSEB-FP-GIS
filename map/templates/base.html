@@ -1,0 +1,47 @@
+<!doctype html>
+{% load static from staticfiles %}
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>EPSEB FP GIS</title>
+    <meta name="description" content="Website to view and filter the engineer final projects made in the EPSEB from UPC">
+    <meta name="keywords" content="EPSEB, UPC, PFC, SIG, DJANGO, GEODJANGO, POSTGIS, LEAFLET">
+    <meta name="author" content="Albert Palenzuela">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{% static 'leaflet.css' %}"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Sidebar.css' %}"/>
+    <link rel="stylesheet" href="{% static 'coordinates.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap-select.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav inline">
+                <li class="li-images"><a href="" class="a-images" style="padding: 1px "><img class="nav-images a-images" src="{% static 'images/EPSEB.jpg' %}" alt=""/></a></li>
+                <li><a class="navbar-brand" href="/">EPSEB FP GIS</a></li>
+                {% if request.user.is_staff %}
+                    <li class="li-images"><a href="{% url 'add' %}">Add</a></li>
+                {% endif %}
+                <li class="li-images" style="float:right"><a href="" class="a-images" style="padding: 1px;"><img class="nav-images a-images" src="{% static 'images/biblioteca.jpg' %}" alt=""/></a></li>
+                <li class="li-images" style="float: right"><a href="" class="a-images" style="padding: 1px;"><img class="nav-images a-images" src="{% static 'images/UPC.png' %}" alt=""/></a></li>
+
+            </ul>
+        </div>
+
+    </nav>
+
+{% block container %}
+
+{% endblock container %}
+
+{% block script %}
+{% endblock script %}
+</body>
+</html>

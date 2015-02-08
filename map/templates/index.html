@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% load static from staticfiles %}
+
+{% block container %}
+    <div id="map"></div>
+    <div class="row">
+        <div id="loader"><img src="{% static 'images/ajax-loader.gif' %}" alt=""/></div>
+        <form method="post" id="submit">
+
+            {% csrf_token %}
+            <div class="form-group form-filter hide" id="form">
+                <label class="label_form" for="id_province_name"> Province </label>
+                {{ filter_form.province_name|add_class:"selectpicker"|set_data:"style: btn-default"|attr:"multiple"|set_data:"selected-text-format:count>3" }}
+                <p class="visible-xs"></p>
+                <label class="label_form" for="id_region_name"> Region </label>
+                {{ filter_form.region_name|add_class:"selectpicker"|set_data:"style: btn-default"|attr:"multiple"|set_data:"selected-text-format:count>3" }}
+                <p class="visible-xs"></p>
+                <label class="label_form" for="id_city_name"> City </label>
+                {{ filter_form.city_name|add_class:"selectpicker"|set_data:"style: btn-default"|attr:"multiple"|set_data:"selected-text-format:count>3" }}
+                <input  type="submit" class="btn btn-primary submit" value="Send"/>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="leaflet-control hide" id="sidebar">
+        <h3 id="title"></h3>
+        <h4 id="job_type"></h4>
+        <a id="coord_title" href="#"><h5>Coordinates</h5></a>
+        <p id="coord" ></p>
+        <a id="student_title" href="#"><h5>Student(s)</h5></a>
+        <p id="student">
+        </p>
+        <a id="tutor_title" href="#"><h5>Tutor(s)</h5></a>
+         <p id="teachers">
+        </p>
+        <a id="url_title" href="#"><h5>Url</h5></a>
+        <p><a href="" id="url" target="_blank"></a></p>
+        <a id="description_title" href="#"><h5>Description</h5></a>
+        <p id="description" style="text-align: justify; display: none;"></p>
+        <a id="image_title" href="#" class="hide"><h5>Image</h5></a>
+        <p><img id="image" src="" width="100%" alt=""/></p>
+    </div>
+{% endblock container %}
+{% block script %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{% static 'js/leaflet.js' %}"></script>
+    <script src="{% static 'js/Sidebar.js' %}"></script>
+    <script src="{% static 'js/Coordinates.js' %}"></script>
+    <script src="{% static 'js/NumberFormatter.js' %}"></script>
+    <script src="{% static 'js/bootstrap-select.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58979401-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+{% endblock script %}

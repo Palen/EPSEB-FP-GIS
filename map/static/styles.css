@@ -1,0 +1,114 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    padding-top: 50px;
+}
+nav > li{
+    display: inline-block;
+}
+#map{
+    height: 85%;
+    width: 100%;
+    margin-bottom: 15px;
+}
+#loader{
+    text-align: center;
+}
+.a-images{
+    padding: 0 5px;
+}
+.add-box{
+    margin-top: 25px;
+}
+.form-add{
+    padding-top: 20px;
+}
+.form-add > p > label{
+    display: inherit;
+}
+.form-filter{
+    text-align: center !important;
+    margin-top: 1%;
+}
+.icon_legend{
+    height: 20px;
+    vertical-align: bottom;
+}
+.inline{
+    width: 100%;
+}
+.label_form{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.nav-images{
+    height: 30px;
+    width: auto;
+    margin-top: 10px;
+
+}
+.li-final{
+    float: right;
+}
+.li-images{
+    padding: 0;
+    display: inline-block;
+}
+.submit{
+    vertical-align: top;
+}
+
+/* Responsive CSS   */
+
+@media (max-width: 768px){
+body{
+    padding-top: 60px;
+}
+
+.nav-images{
+    margin-top: 0;
+}
+.navbar-nav{
+    margin: 0 auto;
+    display: inline-flex;
+    table-layout: fixed;
+    float:none;
+}
+}
+@media (max-width: 480px) {
+
+    body{
+        padding-top: 60px;
+    }
+    #map{
+        height: 450px;
+    }
+    .a-images{
+        padding: 1px;
+    }
+    .leaflet-control-layers{
+        width: 200px;
+        height: auto;
+    }
+    .leaflet-control-zoom{
+        display: none;
+    }
+    .li-images{
+        margin-top: 7px;
+    }
+
+    .form-filter{
+        text-align: left !important;
+        padding-left: 25px;
+    }
+    .form-filter > label {
+        display: inherit;
+    }
+    .nav-images{
+        height: 25px;
+        width: auto;
+        margin-top: 0;
+    }
+}
