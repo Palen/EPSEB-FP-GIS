@@ -2,7 +2,7 @@
 
 ### EPSEB FP GIS ###
 
-* Application made to manage the final engineer projects with a spatial reference.
+* This application is made to manage the final engineer projects with a spatial reference.
 * You can see it on: <a href="http://geo.epseb.upc.edu">EPSBEB FP GIS</a>
 
 ### How do I get set up? ###
